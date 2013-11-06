@@ -26,7 +26,7 @@ return array(
 			'class'=>'system.gii.GiiModule',
 			'password'=>'Password12',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
-			'ipFilters'=>array('127.0.0.1','::1', 'localhost'),
+			'ipFilters'=>array('127.0.0.1', '::1', 'localhost'),
 		),
 		
 	),
@@ -48,16 +48,27 @@ return array(
 			),
 		),
 		*/
+
 		'mail' => array(
                 'class' => 'ext.yii-mail.YiiMail',
-                'transportType'=>'smtp',
+                'transportType'=>'smtp',               
                 'transportOptions'=>array(
+                		
                         'host'=>'smtp.mandrillapp.com',
                         'username'=>'garrick.solberg@gmail.com',
                         'password'=>'6rsm1UO4RMkq86Jv5rZIqQ',
-                        'port'=>'587',                       
+                        'port'=>'587',
+                       
+                        /*
+                        'host' => 'smtp.gmail.com',
+                        'username' => 'garrick.solberg@gmail.com',
+                        'password' => 'akuwinSd',
+                        'port' => '465',
+                        'encryption' => 'ssl',
+                        */
                 ),
-                'viewPath' => 'application.views.mail',             
+                'viewPath' => 'application.views.mail',
+                'logging' => true,             
         ),
 
 		// uncomment the following to use a MySQL database		

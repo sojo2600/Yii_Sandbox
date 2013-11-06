@@ -66,15 +66,15 @@ class SiteController extends Controller
 					"Reply-To: {$model->email}\r\n".
 					"MIME-Version: 1.0\r\n".
 					"Content-Type: text/plain; charset=UTF-8";
-				/*
+				
 				$message = new YiiMailMessage;
 				$message->subject = $subject;
-				$message->setBody($model->body);
+				$message->setBody($model->body, 'text/html');
 				$message->setFrom(array($model->email => $name));
-				$message->setTo(array('garrick.solberg@gmail.com' => 'Garrick Solberg'));
+				$message->addTo(Yii::app()->params['adminEmail']);
 				Yii::app()->mail->send($message); 
-				*/
-				mail(Yii::app()->params['adminEmail'],$subject,$model->body,$headers);
+				
+				//mail(Yii::app()->params['adminEmail'],$subject,$model->body,$headers);
 				Yii::app()->user->setFlash('contact','Thank you for contacting me. I will respond to you as soon as possible.');
 				$this->refresh();
 			}
